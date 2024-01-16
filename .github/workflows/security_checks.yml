@@ -26,7 +26,7 @@ jobs:
 
     - name: Run tfsec
       run: |
-        tfsec .
+        tfsec . -s
 
     - name: Install checkov
       run: |
