@@ -1,0 +1,37 @@
+name: Terraform Security Checks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  security_checks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      run: |
+        terraform -v
+        terraform init
+
+    - name: Install tfsec
+      run: |
+        wget -O tfsec https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64
+        chmod +x tfsec
+        sudo mv tfsec /usr/local/bin/
+
+    - name: Run tfsec
+      run: |
+        tfsec .
+
+    - name: Install checkov
+      run: |
+        pip install checkov
+
+    - name: Run checkov
+      run: |
+        checkov -d .
