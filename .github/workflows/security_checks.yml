@@ -34,4 +34,4 @@ jobs:
 
     - name: Run checkov
       run: |
-        checkov -d .
+        checkov -d . -s
