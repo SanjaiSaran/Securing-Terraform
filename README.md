@@ -26,3 +26,17 @@ To run security checks locally, execute the following commands in your terminal:
 
 ```bash
 ./security_checks.sh
+```
+This will run tfsec and checkov against your Terraform code and provide feedback on any identified security issues.
+
+## GitHub Actions Workflow
+The project includes a GitHub Actions workflow that automatically runs security checks whenever there is a push to the main branch. The workflow file is located at .github/workflows/terraform_security_checks.yml.
+
+To use the GitHub Actions workflow:
+
+ 1. Save the workflow file in your Terraform project's repository.
+ 2. Commit and push the changes to trigger the workflow.
+ 3. Visit the "Actions" tab in your GitHub repository to monitor the workflow execution and view the results.
+
+## Customize
+Feel free to customize the Terraform code and security checks based on your project requirements. You can explore additional security tools and practices to enhance the overall security of your Terraform deployments.
